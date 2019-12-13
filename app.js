@@ -45,7 +45,8 @@ lightwallet.keystore.createVault({
 
     reqFaucetFn();
 
-    setInterval(reqFaucetFn, 1000);
+    // every hour + delta
+    setInterval(reqFaucetFn, 1001 * 60 * 60);
   });
 });
 
@@ -69,6 +70,8 @@ function requestFaucet(index, address, failedAddresses) {
 }
 
 function saveFail(index, addr, failedAddresses) {
+  fs.unlink('failed_addresses', function(err) {});
+  
   failedAddresses.push({index, address: addr});
 
   let f = '';
