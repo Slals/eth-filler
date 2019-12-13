@@ -1,0 +1,20 @@
+{
+  "name": "eth-filler",
+  "version": "1.0.0",
+  "description": "Fill your eth addresses given a BIP32 seed",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "faucet",
+    "ethereum"
+  ],
+  "author": "Blocs",
+  "license": "ISC",
+  "dependencies": {
+    "eth-lightwallet": "^4.0.0",
+    "request": "^2.88.0",
+    "yargs": "^15.0.2"
+  }
+}
