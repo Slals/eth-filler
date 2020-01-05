@@ -31,13 +31,17 @@ lightwallet.keystore.createVault({
     const reqFaucetFn = function() {
       let retryLength = failedAddresses.length;
 
-      for(let a of failedAddresses) {
+      /*for(let a of failedAddresses) {
         console.log(`\nRetry request for ${a.address}...`);
         requestFaucet(a.index, a.address, failedAddresses);
-      }
-      for(let j = i; j < (i + poolSize - retryLength); j++) {
-        console.log(`\nRequest for ${addr[j]}...`);
-        requestFaucet(j, addr[j], failedAddresses);
+      }*/
+      /*for(let j = i; j < (i + poolSize - retryLength); j++) {
+        //console.log(`\nRequest for ${addr[j]}...`);
+        //requestFaucet(j, addr[j], failedAddresses);
+      }*/
+
+      for (let a in addr) {
+        console.log(`${a}: ${addr[a]}`);
       }
 
       i += poolSize;
@@ -71,7 +75,7 @@ function requestFaucet(index, address, failedAddresses) {
 
 function saveFail(index, addr, failedAddresses) {
   fs.unlink('failed_addresses', function(err) {});
-  
+
   failedAddresses.push({index, address: addr});
 
   let f = '';
